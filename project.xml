@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="HaxTanks" package="com.chupup.haxtanks" version="1.0.0" company="Chupup Games" />
+	<app main="Main" path="Export" file="HaxTanks" />
+
+	<window width="640" height="480" background="#0000FF" fps="60" />
+	
+	<source path="Source" />
+	
+	<haxelib name="openfl" />
+	
+	<assets path="Assets" rename="assets" exclude="openfl.svg" />
+	<icon path="Assets/openfl.svg" />
+	
+</project>
