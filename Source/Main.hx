@@ -26,11 +26,13 @@ class Main extends Sprite {
 	private var downKey:Bool;
 	private var leftKey:Bool;
 	private var rightKey:Bool;
+	private var controlKey:Bool;
 
 	private var w_Key:Bool;
 	private var s_Key:Bool;
 	private var a_Key:Bool;
 	private var d_Key:Bool;
+	private var spaceKey:Bool;
 
 	private var reset_Key:Bool;
 
@@ -93,11 +95,13 @@ class Main extends Sprite {
 			case Keyboard.DOWN: downKey = true;
 			case Keyboard.LEFT: leftKey = true;
 			case Keyboard.RIGHT: rightKey = true;
+			case Keyboard.CONTROL: controlKey = true;
 
 			case Keyboard.W: w_Key = true;
 			case Keyboard.S: s_Key = true;
 			case Keyboard.A: a_Key = true;
 			case Keyboard.D: d_Key = true;
+			case Keyboard.SPACE: spaceKey = true;
 
 			case Keyboard.BACKSPACE: reset_Key = true;
 
@@ -113,11 +117,13 @@ class Main extends Sprite {
 			case Keyboard.DOWN: downKey = false;
 			case Keyboard.LEFT: leftKey = false;
 			case Keyboard.RIGHT: rightKey = false;
+			case Keyboard.CONTROL: controlKey = false;
 
 			case Keyboard.W: w_Key = false;
 			case Keyboard.S: s_Key = false;
 			case Keyboard.A: a_Key = false;
 			case Keyboard.D: d_Key = false;
+			case Keyboard.SPACE: spaceKey = false;
 			
 		}
 
@@ -165,6 +171,11 @@ class Main extends Sprite {
 			t2.x += t2.speed * delta;
 			t2.rotation = 1.57;
 		}
+
+		if(controlKey)
+			t1.shoot();
+		if(spaceKey)
+			t2.shoot();	
 
 		t1.collideWorld(this);
 		t2.collideWorld(this);
