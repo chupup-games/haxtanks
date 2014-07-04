@@ -1,5 +1,6 @@
 package ;
 
+// static functions for general game mechanics
 class Mechanics {
 
 	static public function collide(c1:GameObject, c2:GameObject):Bool {
