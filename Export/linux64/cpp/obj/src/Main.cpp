@@ -9,9 +9,6 @@
 #ifndef INCLUDED_Tank
 #include <Tank.h>
 #endif
-#ifndef INCLUDED_haxe_Log
-#include <haxe/Log.h>
-#endif
 #ifndef INCLUDED_openfl_Assets
 #include <openfl/Assets.h>
 #endif
@@ -119,47 +116,45 @@ Void Main_obj::create( ){
 		this->resetT2Y = stageCenterY;
 		HX_STACK_LINE(59)
 		this->resetT2R = (int)0;
-		HX_STACK_LINE(61)
-		::haxe::Log_obj::trace(stageCenterX,hx::SourceInfo(HX_CSTRING("Main.hx"),61,HX_CSTRING("Main"),HX_CSTRING("create")));
-		HX_STACK_LINE(64)
+		HX_STACK_LINE(62)
 		::openfl::display::BitmapData bitmapData = ::openfl::Assets_obj::getBitmapData(HX_CSTRING("assets/tanks.png"),null());		HX_STACK_VAR(bitmapData,"bitmapData");
-		HX_STACK_LINE(65)
+		HX_STACK_LINE(63)
 		::openfl::display::Tilesheet _g4 = ::openfl::display::Tilesheet_obj::__new(bitmapData);		HX_STACK_VAR(_g4,"_g4");
-		HX_STACK_LINE(65)
+		HX_STACK_LINE(63)
 		this->tilesheet = _g4;
-		HX_STACK_LINE(68)
+		HX_STACK_LINE(66)
 		::Tank _g5 = ::Tank_obj::__new(this->resetT1X,this->resetT1Y);		HX_STACK_VAR(_g5,"_g5");
-		HX_STACK_LINE(68)
+		HX_STACK_LINE(66)
 		this->t1 = _g5;
-		HX_STACK_LINE(69)
+		HX_STACK_LINE(67)
 		::openfl::geom::Rectangle _g6 = ::openfl::geom::Rectangle_obj::__new((int)0,(int)16,(int)32,(int)32);		HX_STACK_VAR(_g6,"_g6");
-		HX_STACK_LINE(69)
+		HX_STACK_LINE(67)
 		::openfl::geom::Point _g7 = ::openfl::geom::Point_obj::__new((int)16,(int)16);		HX_STACK_VAR(_g7,"_g7");
-		HX_STACK_LINE(69)
+		HX_STACK_LINE(67)
 		int _g8 = this->tilesheet->addTileRect(_g6,_g7);		HX_STACK_VAR(_g8,"_g8");
-		HX_STACK_LINE(69)
+		HX_STACK_LINE(67)
 		this->t1->id = _g8;
-		HX_STACK_LINE(70)
+		HX_STACK_LINE(68)
 		::Tank _g9 = ::Tank_obj::__new(this->resetT2X,this->resetT2Y);		HX_STACK_VAR(_g9,"_g9");
-		HX_STACK_LINE(70)
+		HX_STACK_LINE(68)
 		this->t2 = _g9;
-		HX_STACK_LINE(71)
+		HX_STACK_LINE(69)
 		::openfl::geom::Rectangle _g10 = ::openfl::geom::Rectangle_obj::__new((int)32,(int)16,(int)32,(int)32);		HX_STACK_VAR(_g10,"_g10");
-		HX_STACK_LINE(71)
+		HX_STACK_LINE(69)
 		::openfl::geom::Point _g11 = ::openfl::geom::Point_obj::__new((int)16,(int)16);		HX_STACK_VAR(_g11,"_g11");
-		HX_STACK_LINE(71)
+		HX_STACK_LINE(69)
 		int _g12 = this->tilesheet->addTileRect(_g10,_g11);		HX_STACK_VAR(_g12,"_g12");
-		HX_STACK_LINE(71)
+		HX_STACK_LINE(69)
 		this->t2->id = _g12;
-		HX_STACK_LINE(73)
+		HX_STACK_LINE(71)
 		this->get_stage()->addEventListener(::openfl::events::KeyboardEvent_obj::KEY_DOWN,this->keyDownHandler_dyn(),null(),null(),null());
-		HX_STACK_LINE(74)
+		HX_STACK_LINE(72)
 		this->get_stage()->addEventListener(::openfl::events::KeyboardEvent_obj::KEY_UP,this->keyUpHandler_dyn(),null(),null(),null());
-		HX_STACK_LINE(76)
+		HX_STACK_LINE(74)
 		int _g13 = ::openfl::Lib_obj::getTimer();		HX_STACK_VAR(_g13,"_g13");
-		HX_STACK_LINE(76)
+		HX_STACK_LINE(74)
 		this->previousTime = _g13;
-		HX_STACK_LINE(77)
+		HX_STACK_LINE(75)
 		this->get_stage()->addEventListener(::openfl::events::Event_obj::ENTER_FRAME,this->update_dyn(),null(),null(),null());
 	}
 return null();
@@ -170,12 +165,12 @@ HX_DEFINE_DYNAMIC_FUNC0(Main_obj,create,(void))
 
 Void Main_obj::update( ::openfl::events::Event event){
 {
-		HX_STACK_FRAME("Main","update",0xb7afa57e,"Main.update","Main.hx",81,0x087e5c05)
+		HX_STACK_FRAME("Main","update",0xb7afa57e,"Main.update","Main.hx",79,0x087e5c05)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(event,"event")
-		HX_STACK_LINE(83)
+		HX_STACK_LINE(81)
 		this->moveTank();
-		HX_STACK_LINE(84)
+		HX_STACK_LINE(82)
 		this->render();
 	}
 return null();
@@ -186,55 +181,55 @@ HX_DEFINE_DYNAMIC_FUNC1(Main_obj,update,(void))
 
 Void Main_obj::keyDownHandler( ::openfl::events::KeyboardEvent event){
 {
-		HX_STACK_FRAME("Main","keyDownHandler",0xd5fe709e,"Main.keyDownHandler","Main.hx",90,0x087e5c05)
+		HX_STACK_FRAME("Main","keyDownHandler",0xd5fe709e,"Main.keyDownHandler","Main.hx",88,0x087e5c05)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(event,"event")
-		HX_STACK_LINE(90)
+		HX_STACK_LINE(88)
 		int _g = event->keyCode;		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(90)
+		HX_STACK_LINE(88)
 		switch( (int)(_g)){
 			case (int)38: {
-				HX_STACK_LINE(92)
+				HX_STACK_LINE(90)
 				this->upKey = true;
 			}
 			;break;
 			case (int)40: {
-				HX_STACK_LINE(93)
+				HX_STACK_LINE(91)
 				this->downKey = true;
 			}
 			;break;
 			case (int)37: {
-				HX_STACK_LINE(94)
+				HX_STACK_LINE(92)
 				this->leftKey = true;
 			}
 			;break;
 			case (int)39: {
-				HX_STACK_LINE(95)
+				HX_STACK_LINE(93)
 				this->rightKey = true;
 			}
 			;break;
 			case (int)87: {
-				HX_STACK_LINE(97)
+				HX_STACK_LINE(95)
 				this->w_Key = true;
 			}
 			;break;
 			case (int)83: {
-				HX_STACK_LINE(98)
+				HX_STACK_LINE(96)
 				this->s_Key = true;
 			}
 			;break;
 			case (int)65: {
-				HX_STACK_LINE(99)
+				HX_STACK_LINE(97)
 				this->a_Key = true;
 			}
 			;break;
 			case (int)68: {
-				HX_STACK_LINE(100)
+				HX_STACK_LINE(98)
 				this->d_Key = true;
 			}
 			;break;
 			case (int)8: {
-				HX_STACK_LINE(102)
+				HX_STACK_LINE(100)
 				this->reset_Key = true;
 			}
 			;break;
@@ -248,50 +243,50 @@ HX_DEFINE_DYNAMIC_FUNC1(Main_obj,keyDownHandler,(void))
 
 Void Main_obj::keyUpHandler( ::openfl::events::KeyboardEvent event){
 {
-		HX_STACK_FRAME("Main","keyUpHandler",0x80311245,"Main.keyUpHandler","Main.hx",110,0x087e5c05)
+		HX_STACK_FRAME("Main","keyUpHandler",0x80311245,"Main.keyUpHandler","Main.hx",108,0x087e5c05)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(event,"event")
-		HX_STACK_LINE(110)
+		HX_STACK_LINE(108)
 		int _g = event->keyCode;		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(110)
+		HX_STACK_LINE(108)
 		switch( (int)(_g)){
 			case (int)38: {
-				HX_STACK_LINE(112)
+				HX_STACK_LINE(110)
 				this->upKey = false;
 			}
 			;break;
 			case (int)40: {
-				HX_STACK_LINE(113)
+				HX_STACK_LINE(111)
 				this->downKey = false;
 			}
 			;break;
 			case (int)37: {
-				HX_STACK_LINE(114)
+				HX_STACK_LINE(112)
 				this->leftKey = false;
 			}
 			;break;
 			case (int)39: {
-				HX_STACK_LINE(115)
+				HX_STACK_LINE(113)
 				this->rightKey = false;
 			}
 			;break;
 			case (int)87: {
-				HX_STACK_LINE(117)
+				HX_STACK_LINE(115)
 				this->w_Key = false;
 			}
 			;break;
 			case (int)83: {
-				HX_STACK_LINE(118)
+				HX_STACK_LINE(116)
 				this->s_Key = false;
 			}
 			;break;
 			case (int)65: {
-				HX_STACK_LINE(119)
+				HX_STACK_LINE(117)
 				this->a_Key = false;
 			}
 			;break;
 			case (int)68: {
-				HX_STACK_LINE(120)
+				HX_STACK_LINE(118)
 				this->d_Key = false;
 			}
 			;break;
@@ -305,89 +300,93 @@ HX_DEFINE_DYNAMIC_FUNC1(Main_obj,keyUpHandler,(void))
 
 Void Main_obj::moveTank( ){
 {
-		HX_STACK_FRAME("Main","moveTank",0x36b6cd50,"Main.moveTank","Main.hx",126,0x087e5c05)
+		HX_STACK_FRAME("Main","moveTank",0x36b6cd50,"Main.moveTank","Main.hx",124,0x087e5c05)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(128)
+		HX_STACK_LINE(126)
 		int currentTime = ::openfl::Lib_obj::getTimer();		HX_STACK_VAR(currentTime,"currentTime");
-		HX_STACK_LINE(129)
+		HX_STACK_LINE(127)
 		int deltaTime = (currentTime - this->previousTime);		HX_STACK_VAR(deltaTime,"deltaTime");
-		HX_STACK_LINE(130)
+		HX_STACK_LINE(128)
 		Float delta = (Float(deltaTime) / Float((int)1000));		HX_STACK_VAR(delta,"delta");
-		HX_STACK_LINE(131)
+		HX_STACK_LINE(129)
 		this->previousTime = currentTime;
-		HX_STACK_LINE(133)
+		HX_STACK_LINE(131)
 		if ((this->reset_Key)){
-			HX_STACK_LINE(133)
+			HX_STACK_LINE(131)
 			this->resetTank();
 		}
-		HX_STACK_LINE(135)
+		HX_STACK_LINE(133)
 		if ((this->upKey)){
-			HX_STACK_LINE(136)
+			HX_STACK_LINE(134)
 			hx::SubEq(this->t1->y,(this->t1->speed * delta));
-			HX_STACK_LINE(137)
+			HX_STACK_LINE(135)
 			this->t1->rotation = (int)0;
 		}
 		else{
-			HX_STACK_LINE(139)
+			HX_STACK_LINE(137)
 			if ((this->downKey)){
-				HX_STACK_LINE(140)
+				HX_STACK_LINE(138)
 				hx::AddEq(this->t1->y,(this->t1->speed * delta));
-				HX_STACK_LINE(141)
+				HX_STACK_LINE(139)
 				this->t1->rotation = 3.14;
 			}
 			else{
-				HX_STACK_LINE(143)
+				HX_STACK_LINE(141)
 				if ((this->leftKey)){
-					HX_STACK_LINE(144)
+					HX_STACK_LINE(142)
 					hx::SubEq(this->t1->x,(this->t1->speed * delta));
-					HX_STACK_LINE(145)
+					HX_STACK_LINE(143)
 					this->t1->rotation = 4.71;
 				}
 				else{
-					HX_STACK_LINE(147)
+					HX_STACK_LINE(145)
 					if ((this->rightKey)){
-						HX_STACK_LINE(148)
+						HX_STACK_LINE(146)
 						hx::AddEq(this->t1->x,(this->t1->speed * delta));
-						HX_STACK_LINE(149)
+						HX_STACK_LINE(147)
 						this->t1->rotation = 1.57;
 					}
 				}
 			}
 		}
-		HX_STACK_LINE(152)
+		HX_STACK_LINE(150)
 		if ((this->w_Key)){
-			HX_STACK_LINE(153)
+			HX_STACK_LINE(151)
 			hx::SubEq(this->t2->y,(this->t2->speed * delta));
-			HX_STACK_LINE(154)
+			HX_STACK_LINE(152)
 			this->t2->rotation = (int)0;
 		}
 		else{
-			HX_STACK_LINE(156)
+			HX_STACK_LINE(154)
 			if ((this->s_Key)){
-				HX_STACK_LINE(157)
+				HX_STACK_LINE(155)
 				hx::AddEq(this->t2->y,(this->t2->speed * delta));
-				HX_STACK_LINE(158)
+				HX_STACK_LINE(156)
 				this->t2->rotation = 3.14;
 			}
 			else{
-				HX_STACK_LINE(160)
+				HX_STACK_LINE(158)
 				if ((this->a_Key)){
-					HX_STACK_LINE(161)
+					HX_STACK_LINE(159)
 					hx::SubEq(this->t2->x,(this->t2->speed * delta));
-					HX_STACK_LINE(162)
+					HX_STACK_LINE(160)
 					this->t2->rotation = 4.71;
 				}
 				else{
-					HX_STACK_LINE(164)
+					HX_STACK_LINE(162)
 					if ((this->d_Key)){
-						HX_STACK_LINE(165)
+						HX_STACK_LINE(163)
 						hx::AddEq(this->t2->x,(this->t2->speed * delta));
-						HX_STACK_LINE(166)
+						HX_STACK_LINE(164)
 						this->t2->rotation = 1.57;
 					}
 				}
 			}
 		}
+		HX_STACK_LINE(167)
+		this->t1->collideWorld(hx::ObjectPtr<OBJ_>(this));
+		HX_STACK_LINE(168)
+		this->t2->collideWorld(hx::ObjectPtr<OBJ_>(this));
 	}
 return null();
 }
@@ -397,21 +396,21 @@ HX_DEFINE_DYNAMIC_FUNC0(Main_obj,moveTank,(void))
 
 Void Main_obj::resetTank( ){
 {
-		HX_STACK_FRAME("Main","resetTank",0x736bfc04,"Main.resetTank","Main.hx",171,0x087e5c05)
+		HX_STACK_FRAME("Main","resetTank",0x736bfc04,"Main.resetTank","Main.hx",172,0x087e5c05)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(173)
+		HX_STACK_LINE(174)
 		this->reset_Key = false;
-		HX_STACK_LINE(175)
-		this->t1->x = this->resetT1X;
 		HX_STACK_LINE(176)
-		this->t1->y = this->resetT1Y;
+		this->t1->x = this->resetT1X;
 		HX_STACK_LINE(177)
+		this->t1->y = this->resetT1Y;
+		HX_STACK_LINE(178)
 		this->t1->rotation = this->resetT1R;
-		HX_STACK_LINE(179)
-		this->t2->x = this->resetT2X;
 		HX_STACK_LINE(180)
-		this->t2->y = this->resetT2Y;
+		this->t2->x = this->resetT2X;
 		HX_STACK_LINE(181)
+		this->t2->y = this->resetT2Y;
+		HX_STACK_LINE(182)
 		this->t2->rotation = this->resetT2R;
 	}
 return null();
@@ -422,15 +421,15 @@ HX_DEFINE_DYNAMIC_FUNC0(Main_obj,resetTank,(void))
 
 Void Main_obj::render( ){
 {
-		HX_STACK_FRAME("Main","render",0x35d38acb,"Main.render","Main.hx",185,0x087e5c05)
+		HX_STACK_FRAME("Main","render",0x35d38acb,"Main.render","Main.hx",186,0x087e5c05)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(187)
+		HX_STACK_LINE(188)
 		this->get_graphics()->clear();
-		HX_STACK_LINE(189)
+		HX_STACK_LINE(190)
 		this->tankList = Array_obj< Float >::__new().Add(this->t1->x).Add(this->t1->y).Add(this->t1->id).Add(this->t1->rotation).Add(this->t2->x).Add(this->t2->y).Add(this->t2->id).Add(this->t2->rotation);
-		HX_STACK_LINE(192)
+		HX_STACK_LINE(193)
 		::openfl::display::Graphics _g = this->get_graphics();		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(192)
+		HX_STACK_LINE(193)
 		this->tilesheet->drawTiles(_g,this->tankList,false,(int)2,null());
 	}
 return null();

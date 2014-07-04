@@ -58,8 +58,6 @@ class Main extends Sprite {
 		resetT2Y = stageCenterY;
 		resetT2R = 0;
 
-		trace(stageCenterX);
-
 		// load tilesheet
 		var bitmapData = openfl.Assets.getBitmapData("assets/tanks.png");
 		tilesheet = new Tilesheet(bitmapData);
@@ -165,6 +163,9 @@ class Main extends Sprite {
 			t2.x += t2.speed * delta;
 			t2.rotation = 1.57;
 		}
+
+		t1.collideWorld(this);
+		t2.collideWorld(this);
 
 	}
 

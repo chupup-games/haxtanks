@@ -3,6 +3,30 @@
 #ifndef INCLUDED_Tank
 #include <Tank.h>
 #endif
+#ifndef INCLUDED_openfl_display_DisplayObject
+#include <openfl/display/DisplayObject.h>
+#endif
+#ifndef INCLUDED_openfl_display_DisplayObjectContainer
+#include <openfl/display/DisplayObjectContainer.h>
+#endif
+#ifndef INCLUDED_openfl_display_IBitmapDrawable
+#include <openfl/display/IBitmapDrawable.h>
+#endif
+#ifndef INCLUDED_openfl_display_InteractiveObject
+#include <openfl/display/InteractiveObject.h>
+#endif
+#ifndef INCLUDED_openfl_display_Sprite
+#include <openfl/display/Sprite.h>
+#endif
+#ifndef INCLUDED_openfl_display_Stage
+#include <openfl/display/Stage.h>
+#endif
+#ifndef INCLUDED_openfl_events_EventDispatcher
+#include <openfl/events/EventDispatcher.h>
+#endif
+#ifndef INCLUDED_openfl_events_IEventDispatcher
+#include <openfl/events/IEventDispatcher.h>
+#endif
 
 Void Tank_obj::__construct(Float x,Float y)
 {
@@ -37,6 +61,50 @@ Dynamic Tank_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct(inArgs[0],inArgs[1]);
 	return result;}
 
+Void Tank_obj::collideWorld( ::openfl::display::Sprite world){
+{
+		HX_STACK_FRAME("Tank","collideWorld",0x3ed2f5d8,"Tank.collideWorld","Tank.hx",23,0x0a99ddf4)
+		HX_STACK_THIS(this)
+		HX_STACK_ARG(world,"world")
+		HX_STACK_LINE(25)
+		if (((this->x < (int)0))){
+			HX_STACK_LINE(25)
+			int _g = world->get_stage()->get_stageWidth();		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(25)
+			this->x = _g;
+		}
+		else{
+			HX_STACK_LINE(26)
+			int _g1 = world->get_stage()->get_stageWidth();		HX_STACK_VAR(_g1,"_g1");
+			HX_STACK_LINE(26)
+			if (((this->x > _g1))){
+				HX_STACK_LINE(26)
+				this->x = (int)0;
+			}
+		}
+		HX_STACK_LINE(28)
+		if (((this->y < (int)0))){
+			HX_STACK_LINE(28)
+			int _g2 = world->get_stage()->get_stageHeight();		HX_STACK_VAR(_g2,"_g2");
+			HX_STACK_LINE(28)
+			this->y = _g2;
+		}
+		else{
+			HX_STACK_LINE(29)
+			int _g3 = world->get_stage()->get_stageHeight();		HX_STACK_VAR(_g3,"_g3");
+			HX_STACK_LINE(29)
+			if (((this->y > _g3))){
+				HX_STACK_LINE(29)
+				this->y = (int)0;
+			}
+		}
+	}
+return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC1(Tank_obj,collideWorld,(void))
+
 
 Tank_obj::Tank_obj()
 {
@@ -57,6 +125,9 @@ Dynamic Tank_obj::__Field(const ::String &inName,bool inCallProp)
 		break;
 	case 8:
 		if (HX_FIELD_EQ(inName,"rotation") ) { return rotation; }
+		break;
+	case 12:
+		if (HX_FIELD_EQ(inName,"collideWorld") ) { return collideWorld_dyn(); }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -110,6 +181,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("y"),
 	HX_CSTRING("rotation"),
 	HX_CSTRING("speed"),
+	HX_CSTRING("collideWorld"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

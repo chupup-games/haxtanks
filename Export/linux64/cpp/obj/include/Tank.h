@@ -6,6 +6,13 @@
 #endif
 
 HX_DECLARE_CLASS0(Tank)
+HX_DECLARE_CLASS2(openfl,display,DisplayObject)
+HX_DECLARE_CLASS2(openfl,display,DisplayObjectContainer)
+HX_DECLARE_CLASS2(openfl,display,IBitmapDrawable)
+HX_DECLARE_CLASS2(openfl,display,InteractiveObject)
+HX_DECLARE_CLASS2(openfl,display,Sprite)
+HX_DECLARE_CLASS2(openfl,events,EventDispatcher)
+HX_DECLARE_CLASS2(openfl,events,IEventDispatcher)
 
 
 class HXCPP_CLASS_ATTRIBUTES  Tank_obj : public hx::Object{
@@ -33,6 +40,9 @@ class HXCPP_CLASS_ATTRIBUTES  Tank_obj : public hx::Object{
 		Float y;
 		Float rotation;
 		int speed;
+		virtual Void collideWorld( ::openfl::display::Sprite world);
+		Dynamic collideWorld_dyn();
+
 };
 
 

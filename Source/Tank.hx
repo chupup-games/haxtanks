@@ -19,4 +19,14 @@ class Tank {
 		speed = 25;
 
 	}
+
+	public function collideWorld(world:openfl.display.Sprite) {
+
+		if(x < 0) x = world.stage.stageWidth;
+		else if(x > world.stage.stageWidth) x = 0;
+
+		if(y < 0) y = world.stage.stageHeight;
+		else if(y > world.stage.stageHeight) y = 0;
+
+	}
 }
