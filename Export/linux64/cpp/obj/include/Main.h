@@ -6,6 +6,7 @@
 #endif
 
 #include <openfl/display/Sprite.h>
+HX_DECLARE_CLASS0(GameObject)
 HX_DECLARE_CLASS0(Main)
 HX_DECLARE_CLASS0(Tank)
 HX_DECLARE_CLASS2(openfl,display,DisplayObject)

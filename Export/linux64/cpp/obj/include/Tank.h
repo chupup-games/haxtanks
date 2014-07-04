@@ -5,27 +5,22 @@
 #include <hxcpp.h>
 #endif
 
+#include <GameObject.h>
+HX_DECLARE_CLASS0(GameObject)
 HX_DECLARE_CLASS0(Tank)
-HX_DECLARE_CLASS2(openfl,display,DisplayObject)
-HX_DECLARE_CLASS2(openfl,display,DisplayObjectContainer)
-HX_DECLARE_CLASS2(openfl,display,IBitmapDrawable)
-HX_DECLARE_CLASS2(openfl,display,InteractiveObject)
-HX_DECLARE_CLASS2(openfl,display,Sprite)
-HX_DECLARE_CLASS2(openfl,events,EventDispatcher)
-HX_DECLARE_CLASS2(openfl,events,IEventDispatcher)
 
 
-class HXCPP_CLASS_ATTRIBUTES  Tank_obj : public hx::Object{
+class HXCPP_CLASS_ATTRIBUTES  Tank_obj : public ::GameObject_obj{
 	public:
-		typedef hx::Object super;
+		typedef ::GameObject_obj super;
 		typedef Tank_obj OBJ_;
 		Tank_obj();
-		Void __construct(Float x,Float y);
+		Void __construct(Float x,Float y,Float rotation,Float radius);
 
 	public:
 		inline void *operator new( size_t inSize, bool inContainer=false)
 			{ return hx::Object::operator new(inSize,inContainer); }
-		static hx::ObjectPtr< Tank_obj > __new(Float x,Float y);
+		static hx::ObjectPtr< Tank_obj > __new(Float x,Float y,Float rotation,Float radius);
 		static Dynamic __CreateEmpty();
 		static Dynamic __Create(hx::DynamicArray inArgs);
 		//~Tank_obj();
@@ -35,13 +30,8 @@ class HXCPP_CLASS_ATTRIBUTES  Tank_obj : public hx::Object{
 		static void __register();
 		::String __ToString() const { return HX_CSTRING("Tank"); }
 
-		int id;
-		Float x;
-		Float y;
-		Float rotation;
-		int speed;
-		virtual Void collideWorld( ::openfl::display::Sprite world);
-		Dynamic collideWorld_dyn();
+		virtual Void shoot( );
+		Dynamic shoot_dyn();
 
 };
 

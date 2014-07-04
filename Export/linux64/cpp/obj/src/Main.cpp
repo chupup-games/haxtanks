@@ -1,7 +1,13 @@
 #include <hxcpp.h>
 
+#ifndef INCLUDED_GameObject
+#include <GameObject.h>
+#endif
 #ifndef INCLUDED_Main
 #include <Main.h>
+#endif
+#ifndef INCLUDED_Mechanics
+#include <Mechanics.h>
 #endif
 #ifndef INCLUDED_Std
 #include <Std.h>
@@ -123,7 +129,7 @@ Void Main_obj::create( ){
 		HX_STACK_LINE(63)
 		this->tilesheet = _g4;
 		HX_STACK_LINE(66)
-		::Tank _g5 = ::Tank_obj::__new(this->resetT1X,this->resetT1Y);		HX_STACK_VAR(_g5,"_g5");
+		::Tank _g5 = ::Tank_obj::__new(this->resetT1X,this->resetT1Y,this->resetT1R,(int)16);		HX_STACK_VAR(_g5,"_g5");
 		HX_STACK_LINE(66)
 		this->t1 = _g5;
 		HX_STACK_LINE(67)
@@ -135,26 +141,30 @@ Void Main_obj::create( ){
 		HX_STACK_LINE(67)
 		this->t1->id = _g8;
 		HX_STACK_LINE(68)
-		::Tank _g9 = ::Tank_obj::__new(this->resetT2X,this->resetT2Y);		HX_STACK_VAR(_g9,"_g9");
-		HX_STACK_LINE(68)
+		this->t1->speed = (int)25;
+		HX_STACK_LINE(69)
+		::Tank _g9 = ::Tank_obj::__new(this->resetT2X,this->resetT2Y,this->resetT2R,(int)16);		HX_STACK_VAR(_g9,"_g9");
+		HX_STACK_LINE(69)
 		this->t2 = _g9;
-		HX_STACK_LINE(69)
+		HX_STACK_LINE(70)
 		::openfl::geom::Rectangle _g10 = ::openfl::geom::Rectangle_obj::__new((int)32,(int)16,(int)32,(int)32);		HX_STACK_VAR(_g10,"_g10");
-		HX_STACK_LINE(69)
+		HX_STACK_LINE(70)
 		::openfl::geom::Point _g11 = ::openfl::geom::Point_obj::__new((int)16,(int)16);		HX_STACK_VAR(_g11,"_g11");
-		HX_STACK_LINE(69)
+		HX_STACK_LINE(70)
 		int _g12 = this->tilesheet->addTileRect(_g10,_g11);		HX_STACK_VAR(_g12,"_g12");
-		HX_STACK_LINE(69)
+		HX_STACK_LINE(70)
 		this->t2->id = _g12;
 		HX_STACK_LINE(71)
+		this->t2->speed = (int)25;
+		HX_STACK_LINE(73)
 		this->get_stage()->addEventListener(::openfl::events::KeyboardEvent_obj::KEY_DOWN,this->keyDownHandler_dyn(),null(),null(),null());
-		HX_STACK_LINE(72)
+		HX_STACK_LINE(74)
 		this->get_stage()->addEventListener(::openfl::events::KeyboardEvent_obj::KEY_UP,this->keyUpHandler_dyn(),null(),null(),null());
-		HX_STACK_LINE(74)
+		HX_STACK_LINE(76)
 		int _g13 = ::openfl::Lib_obj::getTimer();		HX_STACK_VAR(_g13,"_g13");
-		HX_STACK_LINE(74)
+		HX_STACK_LINE(76)
 		this->previousTime = _g13;
-		HX_STACK_LINE(75)
+		HX_STACK_LINE(77)
 		this->get_stage()->addEventListener(::openfl::events::Event_obj::ENTER_FRAME,this->update_dyn(),null(),null(),null());
 	}
 return null();
@@ -165,12 +175,12 @@ HX_DEFINE_DYNAMIC_FUNC0(Main_obj,create,(void))
 
 Void Main_obj::update( ::openfl::events::Event event){
 {
-		HX_STACK_FRAME("Main","update",0xb7afa57e,"Main.update","Main.hx",79,0x087e5c05)
+		HX_STACK_FRAME("Main","update",0xb7afa57e,"Main.update","Main.hx",81,0x087e5c05)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(event,"event")
-		HX_STACK_LINE(81)
+		HX_STACK_LINE(83)
 		this->moveTank();
-		HX_STACK_LINE(82)
+		HX_STACK_LINE(84)
 		this->render();
 	}
 return null();
@@ -181,55 +191,55 @@ HX_DEFINE_DYNAMIC_FUNC1(Main_obj,update,(void))
 
 Void Main_obj::keyDownHandler( ::openfl::events::KeyboardEvent event){
 {
-		HX_STACK_FRAME("Main","keyDownHandler",0xd5fe709e,"Main.keyDownHandler","Main.hx",88,0x087e5c05)
+		HX_STACK_FRAME("Main","keyDownHandler",0xd5fe709e,"Main.keyDownHandler","Main.hx",90,0x087e5c05)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(event,"event")
-		HX_STACK_LINE(88)
+		HX_STACK_LINE(90)
 		int _g = event->keyCode;		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(88)
+		HX_STACK_LINE(90)
 		switch( (int)(_g)){
 			case (int)38: {
-				HX_STACK_LINE(90)
+				HX_STACK_LINE(92)
 				this->upKey = true;
 			}
 			;break;
 			case (int)40: {
-				HX_STACK_LINE(91)
+				HX_STACK_LINE(93)
 				this->downKey = true;
 			}
 			;break;
 			case (int)37: {
-				HX_STACK_LINE(92)
+				HX_STACK_LINE(94)
 				this->leftKey = true;
 			}
 			;break;
 			case (int)39: {
-				HX_STACK_LINE(93)
+				HX_STACK_LINE(95)
 				this->rightKey = true;
 			}
 			;break;
 			case (int)87: {
-				HX_STACK_LINE(95)
+				HX_STACK_LINE(97)
 				this->w_Key = true;
 			}
 			;break;
 			case (int)83: {
-				HX_STACK_LINE(96)
+				HX_STACK_LINE(98)
 				this->s_Key = true;
 			}
 			;break;
 			case (int)65: {
-				HX_STACK_LINE(97)
+				HX_STACK_LINE(99)
 				this->a_Key = true;
 			}
 			;break;
 			case (int)68: {
-				HX_STACK_LINE(98)
+				HX_STACK_LINE(100)
 				this->d_Key = true;
 			}
 			;break;
 			case (int)8: {
-				HX_STACK_LINE(100)
+				HX_STACK_LINE(102)
 				this->reset_Key = true;
 			}
 			;break;
@@ -243,50 +253,50 @@ HX_DEFINE_DYNAMIC_FUNC1(Main_obj,keyDownHandler,(void))
 
 Void Main_obj::keyUpHandler( ::openfl::events::KeyboardEvent event){
 {
-		HX_STACK_FRAME("Main","keyUpHandler",0x80311245,"Main.keyUpHandler","Main.hx",108,0x087e5c05)
+		HX_STACK_FRAME("Main","keyUpHandler",0x80311245,"Main.keyUpHandler","Main.hx",110,0x087e5c05)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(event,"event")
-		HX_STACK_LINE(108)
+		HX_STACK_LINE(110)
 		int _g = event->keyCode;		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(108)
+		HX_STACK_LINE(110)
 		switch( (int)(_g)){
 			case (int)38: {
-				HX_STACK_LINE(110)
+				HX_STACK_LINE(112)
 				this->upKey = false;
 			}
 			;break;
 			case (int)40: {
-				HX_STACK_LINE(111)
+				HX_STACK_LINE(113)
 				this->downKey = false;
 			}
 			;break;
 			case (int)37: {
-				HX_STACK_LINE(112)
+				HX_STACK_LINE(114)
 				this->leftKey = false;
 			}
 			;break;
 			case (int)39: {
-				HX_STACK_LINE(113)
+				HX_STACK_LINE(115)
 				this->rightKey = false;
 			}
 			;break;
 			case (int)87: {
-				HX_STACK_LINE(115)
+				HX_STACK_LINE(117)
 				this->w_Key = false;
 			}
 			;break;
 			case (int)83: {
-				HX_STACK_LINE(116)
+				HX_STACK_LINE(118)
 				this->s_Key = false;
 			}
 			;break;
 			case (int)65: {
-				HX_STACK_LINE(117)
+				HX_STACK_LINE(119)
 				this->a_Key = false;
 			}
 			;break;
 			case (int)68: {
-				HX_STACK_LINE(118)
+				HX_STACK_LINE(120)
 				this->d_Key = false;
 			}
 			;break;
@@ -300,93 +310,98 @@ HX_DEFINE_DYNAMIC_FUNC1(Main_obj,keyUpHandler,(void))
 
 Void Main_obj::moveTank( ){
 {
-		HX_STACK_FRAME("Main","moveTank",0x36b6cd50,"Main.moveTank","Main.hx",124,0x087e5c05)
+		HX_STACK_FRAME("Main","moveTank",0x36b6cd50,"Main.moveTank","Main.hx",126,0x087e5c05)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(126)
-		int currentTime = ::openfl::Lib_obj::getTimer();		HX_STACK_VAR(currentTime,"currentTime");
-		HX_STACK_LINE(127)
-		int deltaTime = (currentTime - this->previousTime);		HX_STACK_VAR(deltaTime,"deltaTime");
 		HX_STACK_LINE(128)
-		Float delta = (Float(deltaTime) / Float((int)1000));		HX_STACK_VAR(delta,"delta");
+		int currentTime = ::openfl::Lib_obj::getTimer();		HX_STACK_VAR(currentTime,"currentTime");
 		HX_STACK_LINE(129)
-		this->previousTime = currentTime;
+		int deltaTime = (currentTime - this->previousTime);		HX_STACK_VAR(deltaTime,"deltaTime");
+		HX_STACK_LINE(130)
+		Float delta = (Float(deltaTime) / Float((int)1000));		HX_STACK_VAR(delta,"delta");
 		HX_STACK_LINE(131)
+		this->previousTime = currentTime;
+		HX_STACK_LINE(133)
 		if ((this->reset_Key)){
-			HX_STACK_LINE(131)
+			HX_STACK_LINE(133)
 			this->resetTank();
 		}
-		HX_STACK_LINE(133)
+		HX_STACK_LINE(135)
 		if ((this->upKey)){
-			HX_STACK_LINE(134)
+			HX_STACK_LINE(136)
 			hx::SubEq(this->t1->y,(this->t1->speed * delta));
-			HX_STACK_LINE(135)
+			HX_STACK_LINE(137)
 			this->t1->rotation = (int)0;
 		}
 		else{
-			HX_STACK_LINE(137)
+			HX_STACK_LINE(139)
 			if ((this->downKey)){
-				HX_STACK_LINE(138)
+				HX_STACK_LINE(140)
 				hx::AddEq(this->t1->y,(this->t1->speed * delta));
-				HX_STACK_LINE(139)
+				HX_STACK_LINE(141)
 				this->t1->rotation = 3.14;
 			}
 			else{
-				HX_STACK_LINE(141)
+				HX_STACK_LINE(143)
 				if ((this->leftKey)){
-					HX_STACK_LINE(142)
+					HX_STACK_LINE(144)
 					hx::SubEq(this->t1->x,(this->t1->speed * delta));
-					HX_STACK_LINE(143)
+					HX_STACK_LINE(145)
 					this->t1->rotation = 4.71;
 				}
 				else{
-					HX_STACK_LINE(145)
+					HX_STACK_LINE(147)
 					if ((this->rightKey)){
-						HX_STACK_LINE(146)
+						HX_STACK_LINE(148)
 						hx::AddEq(this->t1->x,(this->t1->speed * delta));
-						HX_STACK_LINE(147)
+						HX_STACK_LINE(149)
 						this->t1->rotation = 1.57;
 					}
 				}
 			}
 		}
-		HX_STACK_LINE(150)
+		HX_STACK_LINE(152)
 		if ((this->w_Key)){
-			HX_STACK_LINE(151)
+			HX_STACK_LINE(153)
 			hx::SubEq(this->t2->y,(this->t2->speed * delta));
-			HX_STACK_LINE(152)
+			HX_STACK_LINE(154)
 			this->t2->rotation = (int)0;
 		}
 		else{
-			HX_STACK_LINE(154)
+			HX_STACK_LINE(156)
 			if ((this->s_Key)){
-				HX_STACK_LINE(155)
+				HX_STACK_LINE(157)
 				hx::AddEq(this->t2->y,(this->t2->speed * delta));
-				HX_STACK_LINE(156)
+				HX_STACK_LINE(158)
 				this->t2->rotation = 3.14;
 			}
 			else{
-				HX_STACK_LINE(158)
+				HX_STACK_LINE(160)
 				if ((this->a_Key)){
-					HX_STACK_LINE(159)
+					HX_STACK_LINE(161)
 					hx::SubEq(this->t2->x,(this->t2->speed * delta));
-					HX_STACK_LINE(160)
+					HX_STACK_LINE(162)
 					this->t2->rotation = 4.71;
 				}
 				else{
-					HX_STACK_LINE(162)
+					HX_STACK_LINE(164)
 					if ((this->d_Key)){
-						HX_STACK_LINE(163)
+						HX_STACK_LINE(165)
 						hx::AddEq(this->t2->x,(this->t2->speed * delta));
-						HX_STACK_LINE(164)
+						HX_STACK_LINE(166)
 						this->t2->rotation = 1.57;
 					}
 				}
 			}
 		}
-		HX_STACK_LINE(167)
+		HX_STACK_LINE(169)
 		this->t1->collideWorld(hx::ObjectPtr<OBJ_>(this));
-		HX_STACK_LINE(168)
+		HX_STACK_LINE(170)
 		this->t2->collideWorld(hx::ObjectPtr<OBJ_>(this));
+		HX_STACK_LINE(172)
+		if ((::Mechanics_obj::collide(this->t1,this->t2))){
+			HX_STACK_LINE(173)
+			this->reset_Key = true;
+		}
 	}
 return null();
 }
@@ -396,21 +411,21 @@ HX_DEFINE_DYNAMIC_FUNC0(Main_obj,moveTank,(void))
 
 Void Main_obj::resetTank( ){
 {
-		HX_STACK_FRAME("Main","resetTank",0x736bfc04,"Main.resetTank","Main.hx",172,0x087e5c05)
+		HX_STACK_FRAME("Main","resetTank",0x736bfc04,"Main.resetTank","Main.hx",177,0x087e5c05)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(174)
+		HX_STACK_LINE(179)
 		this->reset_Key = false;
-		HX_STACK_LINE(176)
-		this->t1->x = this->resetT1X;
-		HX_STACK_LINE(177)
-		this->t1->y = this->resetT1Y;
-		HX_STACK_LINE(178)
-		this->t1->rotation = this->resetT1R;
-		HX_STACK_LINE(180)
-		this->t2->x = this->resetT2X;
 		HX_STACK_LINE(181)
-		this->t2->y = this->resetT2Y;
+		this->t1->x = this->resetT1X;
 		HX_STACK_LINE(182)
+		this->t1->y = this->resetT1Y;
+		HX_STACK_LINE(183)
+		this->t1->rotation = this->resetT1R;
+		HX_STACK_LINE(185)
+		this->t2->x = this->resetT2X;
+		HX_STACK_LINE(186)
+		this->t2->y = this->resetT2Y;
+		HX_STACK_LINE(187)
 		this->t2->rotation = this->resetT2R;
 	}
 return null();
@@ -421,15 +436,15 @@ HX_DEFINE_DYNAMIC_FUNC0(Main_obj,resetTank,(void))
 
 Void Main_obj::render( ){
 {
-		HX_STACK_FRAME("Main","render",0x35d38acb,"Main.render","Main.hx",186,0x087e5c05)
+		HX_STACK_FRAME("Main","render",0x35d38acb,"Main.render","Main.hx",191,0x087e5c05)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(188)
+		HX_STACK_LINE(193)
 		this->get_graphics()->clear();
-		HX_STACK_LINE(190)
+		HX_STACK_LINE(195)
 		this->tankList = Array_obj< Float >::__new().Add(this->t1->x).Add(this->t1->y).Add(this->t1->id).Add(this->t1->rotation).Add(this->t2->x).Add(this->t2->y).Add(this->t2->id).Add(this->t2->rotation);
-		HX_STACK_LINE(193)
+		HX_STACK_LINE(198)
 		::openfl::display::Graphics _g = this->get_graphics();		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(193)
+		HX_STACK_LINE(198)
 		this->tilesheet->drawTiles(_g,this->tankList,false,(int)2,null());
 	}
 return null();

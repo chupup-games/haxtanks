@@ -63,10 +63,12 @@ class Main extends Sprite {
 		tilesheet = new Tilesheet(bitmapData);
 
 		// create the tank objects
-		t1 = new Tank(resetT1X, resetT1Y);
+		t1 = new Tank(resetT1X, resetT1Y, resetT1R, 16);
 		t1.id = tilesheet.addTileRect(new openfl.geom.Rectangle(0, 16, 32, 32), new openfl.geom.Point(16, 16));
-		t2 = new Tank(resetT2X, resetT2Y);
+		t1.speed = 25;
+		t2 = new Tank(resetT2X, resetT2Y, resetT2R, 16);
 		t2.id = tilesheet.addTileRect(new openfl.geom.Rectangle(32, 16, 32, 32), new openfl.geom.Point(16, 16));	
+		t2.speed = 25;
 
 		stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
 		stage.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
@@ -166,6 +168,9 @@ class Main extends Sprite {
 
 		t1.collideWorld(this);
 		t2.collideWorld(this);
+
+		if(Mechanics.collide(t1, t2))
+			reset_Key = true;
 
 	}
 

@@ -131,9 +131,11 @@
 #include <StringTools.h>
 #include <StringBuf.h>
 #include <Reflect.h>
+#include <Mechanics.h>
 #include <IMap.h>
 #include <List.h>
 #include <Lambda.h>
+#include <GameObject.h>
 #include <DefaultAssetLibrary.h>
 #include <openfl/AssetLibrary.h>
 #include <Date.h>
@@ -295,9 +297,11 @@ hx::RegisterResources( hx::GetResources() );
 ::StringTools_obj::__register();
 ::StringBuf_obj::__register();
 ::Reflect_obj::__register();
+::Mechanics_obj::__register();
 ::IMap_obj::__register();
 ::List_obj::__register();
 ::Lambda_obj::__register();
+::GameObject_obj::__register();
 ::DefaultAssetLibrary_obj::__register();
 ::openfl::AssetLibrary_obj::__register();
 ::Date_obj::__register();
@@ -349,9 +353,11 @@ hx::RegisterResources( hx::GetResources() );
 ::Date_obj::__boot();
 ::openfl::AssetLibrary_obj::__boot();
 ::DefaultAssetLibrary_obj::__boot();
+::GameObject_obj::__boot();
 ::Lambda_obj::__boot();
 ::List_obj::__boot();
 ::IMap_obj::__boot();
+::Mechanics_obj::__boot();
 ::Reflect_obj::__boot();
 ::StringBuf_obj::__boot();
 ::StringTools_obj::__boot();
