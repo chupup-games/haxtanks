@@ -1,5 +1,6 @@
 package ;
 
+// parent class for all objects in the game
 class GameObject {
 
 	public var id:Int;
@@ -24,7 +25,7 @@ class GameObject {
 	public function getRadius():Float {
 
 		return radius;
-		
+
 	}
 
 	public function collideWorld(world:openfl.display.Sprite) {
