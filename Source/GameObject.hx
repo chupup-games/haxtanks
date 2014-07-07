@@ -8,6 +8,10 @@ class GameObject {
 	public var y:Float;
 	public var rotation:Float; // rotation is in radians
 
+	private var resetX:Float;
+	private var resetY:Float;
+	private var resetR:Float;
+
 	public var speed:Int;
 
 	private var radius:Float; // needed for circle collision detection
@@ -19,6 +23,11 @@ class GameObject {
 
 		this.rotation = rotation;
 		this.radius = radius;
+
+		// save object position and rotation for reset
+		this.resetX = this.x;
+		this.resetY = this.y;
+		this.resetR = this.rotation;
 
 	}
 
@@ -36,5 +45,13 @@ class GameObject {
 		if(y < 0) y = world.stage.stageHeight;
 		else if(y > world.stage.stageHeight) y = 0;
 
+	}
+
+	public function reset() {
+
+		this.x = this.resetX;
+		this.y = this.resetY;
+		this.rotation = this.resetR;
+		
 	}
 }

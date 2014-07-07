@@ -13,14 +13,6 @@ class Main extends Sprite {
 	var t1:Tank;
 	var t2:Tank;
 
-	// reset player position and rotation
-	var resetT1X:Int;
-	var resetT1Y:Int; 
-	var resetT1R:Float;
-	var resetT2X:Int; 
-	var resetT2Y:Int; 
-	var resetT2R:Float;
-
 	// set the player keys
 	private var upKey:Bool;
 	private var downKey:Bool;
@@ -52,23 +44,15 @@ class Main extends Sprite {
 		var stageCenterX = Std.int(this.stage.stageWidth / 2);
 		var stageCenterY = Std.int(this.stage.stageHeight / 2);
 
-		resetT1X = stageCenterX - 250;
-		resetT1Y = stageCenterY;
-		resetT1R = 0;
-
-		resetT2X = stageCenterX + 250;
-		resetT2Y = stageCenterY;
-		resetT2R = 0;
-
 		// load tilesheet
 		var bitmapData = openfl.Assets.getBitmapData("assets/tanks.png");
 		tilesheet = new Tilesheet(bitmapData);
 
 		// create the tank objects
-		t1 = new Tank(resetT1X, resetT1Y, resetT1R, 16);
+		t1 = new Tank(stageCenterX - 250, stageCenterY, 0, 16);
 		t1.id = tilesheet.addTileRect(new openfl.geom.Rectangle(0, 16, 32, 32), new openfl.geom.Point(16, 16));
 		t1.speed = 25;
-		t2 = new Tank(resetT2X, resetT2Y, resetT2R, 16);
+		t2 = new Tank(stageCenterX + 250, stageCenterY, 0, 16);
 		t2.id = tilesheet.addTileRect(new openfl.geom.Rectangle(32, 16, 32, 32), new openfl.geom.Point(16, 16));	
 		t2.speed = 25;
 
@@ -189,13 +173,8 @@ class Main extends Sprite {
 
 		reset_Key = false;
 
-		t1.x = resetT1X;
-		t1.y = resetT1Y;
-		t1.rotation = resetT1R;
-
-		t2.x = resetT2X;
-		t2.y = resetT2Y;
-		t2.rotation = resetT2R;
+		t1.reset();
+		t2.reset();
 
 	}
 
