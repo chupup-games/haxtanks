@@ -29,22 +29,22 @@ Dynamic Mechanics_obj::__Create(hx::DynamicArray inArgs)
 	return result;}
 
 bool Mechanics_obj::collide( ::GameObject c1,::GameObject c2){
-	HX_STACK_FRAME("Mechanics","collide",0x8a2c675f,"Mechanics.collide","Mechanics.hx",5,0x7fd4aecf)
+	HX_STACK_FRAME("Mechanics","collide",0x8a2c675f,"Mechanics.collide","Mechanics.hx",6,0x7fd4aecf)
 	HX_STACK_ARG(c1,"c1")
 	HX_STACK_ARG(c2,"c2")
-	HX_STACK_LINE(7)
-	Float distX = (c1->x - c2->x);		HX_STACK_VAR(distX,"distX");
 	HX_STACK_LINE(8)
+	Float distX = (c1->x - c2->x);		HX_STACK_VAR(distX,"distX");
+	HX_STACK_LINE(9)
 	Float distY = (c1->y - c2->y);		HX_STACK_VAR(distY,"distY");
-	HX_STACK_LINE(10)
+	HX_STACK_LINE(11)
 	Float dist = ::Math_obj::sqrt(((distX * distX) + (distY * distY)));		HX_STACK_VAR(dist,"dist");
-	HX_STACK_LINE(11)
+	HX_STACK_LINE(12)
 	Float _g = c1->getRadius();		HX_STACK_VAR(_g,"_g");
-	HX_STACK_LINE(11)
+	HX_STACK_LINE(12)
 	Float _g1 = c2->getRadius();		HX_STACK_VAR(_g1,"_g1");
-	HX_STACK_LINE(11)
+	HX_STACK_LINE(12)
 	Float _g2 = (_g + _g1);		HX_STACK_VAR(_g2,"_g2");
-	HX_STACK_LINE(11)
+	HX_STACK_LINE(12)
 	return (dist <= _g2);
 }
 

@@ -44,7 +44,7 @@ Void Tank_obj::shoot( ){
 		HX_STACK_FRAME("Tank","shoot",0xdb9fe57b,"Tank.shoot","Tank.hx",7,0x0a99ddf4)
 		HX_STACK_THIS(this)
 		HX_STACK_LINE(7)
-		::haxe::Log_obj::trace(HX_CSTRING("Shooting.."),hx::SourceInfo(HX_CSTRING("Tank.hx"),7,HX_CSTRING("Tank"),HX_CSTRING("shoot")));
+		::haxe::Log_obj::trace(HX_CSTRING("Shooting Target.."),hx::SourceInfo(HX_CSTRING("Tank.hx"),7,HX_CSTRING("Tank"),HX_CSTRING("shoot")));
 	}
 return null();
 }

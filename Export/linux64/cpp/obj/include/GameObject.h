@@ -39,6 +39,9 @@ class HXCPP_CLASS_ATTRIBUTES  GameObject_obj : public hx::Object{
 		Float x;
 		Float y;
 		Float rotation;
+		Float resetX;
+		Float resetY;
+		Float resetR;
 		int speed;
 		Float radius;
 		virtual Float getRadius( );
@@ -46,6 +49,9 @@ class HXCPP_CLASS_ATTRIBUTES  GameObject_obj : public hx::Object{
 
 		virtual Void collideWorld( ::openfl::display::Sprite world);
 		Dynamic collideWorld_dyn();
+
+		virtual Void reset( );
+		Dynamic reset_dyn();
 
 };
 
