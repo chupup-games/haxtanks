@@ -194,7 +194,7 @@ Void ApplicationMain_obj::main( ){
 		HX_END_LOCAL_FUNC0((void))
 
 		HX_STACK_LINE(32)
-		::openfl::Lib_obj::create( Dynamic(new _Function_1_1()),(int)640,(int)480,(int)60,(int)255,(int((int((int((int((int((int((int((int((int((int(::openfl::Lib_obj::HARDWARE) | int((int)0))) | int((int)0))) | int((int)0))) | int((int)0))) | int(::openfl::Lib_obj::RESIZABLE))) | int((int)0))) | int((int)0))) | int((int)0))) | int((int)0))) | int((int)0)),HX_CSTRING("HaxTanks"),null(),null());
+		::openfl::Lib_obj::create( Dynamic(new _Function_1_1()),(int)640,(int)480,(int)60,(int)153,(int((int((int((int((int((int((int((int((int((int(::openfl::Lib_obj::HARDWARE) | int((int)0))) | int((int)0))) | int((int)0))) | int((int)0))) | int(::openfl::Lib_obj::RESIZABLE))) | int((int)0))) | int((int)0))) | int((int)0))) | int((int)0))) | int((int)0)),HX_CSTRING("HaxTanks"),null(),null());
 	}
 return null();
 }

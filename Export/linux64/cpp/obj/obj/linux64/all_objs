@@ -133,10 +133,11 @@ obj/linux64/57588eaa_Mechanics.o
 obj/linux64/57588eaa_IMap.o
 obj/linux64/57588eaa_List.o
 obj/linux64/57588eaa_Lambda.o
-obj/linux64/57588eaa_GameObject.o
 obj/linux64/57588eaa_DefaultAssetLibrary.o
 obj/linux64/a01872f9_AssetLibrary.o
 obj/linux64/57588eaa_Date.o
+obj/linux64/57588eaa_Bullet.o
+obj/linux64/57588eaa_GameObject.o
 obj/linux64/57588eaa_DocumentClass.o
 obj/linux64/57588eaa_Main.o
 obj/linux64/6e18434b_Sprite.o

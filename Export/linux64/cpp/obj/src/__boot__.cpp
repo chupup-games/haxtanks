@@ -135,10 +135,11 @@
 #include <IMap.h>
 #include <List.h>
 #include <Lambda.h>
-#include <GameObject.h>
 #include <DefaultAssetLibrary.h>
 #include <openfl/AssetLibrary.h>
 #include <Date.h>
+#include <Bullet.h>
+#include <GameObject.h>
 #include <DocumentClass.h>
 #include <Main.h>
 #include <openfl/display/Sprite.h>
@@ -301,10 +302,11 @@ hx::RegisterResources( hx::GetResources() );
 ::IMap_obj::__register();
 ::List_obj::__register();
 ::Lambda_obj::__register();
-::GameObject_obj::__register();
 ::DefaultAssetLibrary_obj::__register();
 ::openfl::AssetLibrary_obj::__register();
 ::Date_obj::__register();
+::Bullet_obj::__register();
+::GameObject_obj::__register();
 ::DocumentClass_obj::__register();
 ::Main_obj::__register();
 ::openfl::display::Sprite_obj::__register();
@@ -350,10 +352,11 @@ hx::RegisterResources( hx::GetResources() );
 ::openfl::display::Sprite_obj::__boot();
 ::Main_obj::__boot();
 ::DocumentClass_obj::__boot();
+::GameObject_obj::__boot();
+::Bullet_obj::__boot();
 ::Date_obj::__boot();
 ::openfl::AssetLibrary_obj::__boot();
 ::DefaultAssetLibrary_obj::__boot();
-::GameObject_obj::__boot();
 ::Lambda_obj::__boot();
 ::List_obj::__boot();
 ::IMap_obj::__boot();

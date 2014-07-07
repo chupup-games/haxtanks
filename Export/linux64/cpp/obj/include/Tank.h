@@ -30,9 +30,6 @@ class HXCPP_CLASS_ATTRIBUTES  Tank_obj : public ::GameObject_obj{
 		static void __register();
 		::String __ToString() const { return HX_CSTRING("Tank"); }
 
-		virtual Void shoot( );
-		Dynamic shoot_dyn();
-
 };
 
 

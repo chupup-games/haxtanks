@@ -43,10 +43,20 @@ class HXCPP_CLASS_ATTRIBUTES  Main_obj : public ::openfl::display::Sprite_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("Main"); }
 
+		Float DIR_UP;
+		Float DIR_RIGHT;
+		Float DIR_DOWN;
+		Float DIR_LEFT;
 		::openfl::display::Tilesheet tilesheet;
 		Array< Float > tankList;
 		::Tank t1;
 		::Tank t2;
+		bool t1Fired;
+		bool t2Fired;
+		int bulletGreen;
+		int bulletRed;
+		Array< ::Dynamic > bullets;
+		Array< Float > bulletList;
 		bool upKey;
 		bool downKey;
 		bool leftKey;
@@ -65,20 +75,26 @@ class HXCPP_CLASS_ATTRIBUTES  Main_obj : public ::openfl::display::Sprite_obj{
 		virtual Void update( ::openfl::events::Event event);
 		Dynamic update_dyn();
 
+		virtual Void render( );
+		Dynamic render_dyn();
+
 		virtual Void keyDownHandler( ::openfl::events::KeyboardEvent event);
 		Dynamic keyDownHandler_dyn();
 
 		virtual Void keyUpHandler( ::openfl::events::KeyboardEvent event);
 		Dynamic keyUpHandler_dyn();
 
-		virtual Void moveTank( );
-		Dynamic moveTank_dyn();
-
 		virtual Void resetTank( );
 		Dynamic resetTank_dyn();
 
-		virtual Void render( );
-		Dynamic render_dyn();
+		virtual Void moveTank( );
+		Dynamic moveTank_dyn();
+
+		virtual Void shooting( );
+		Dynamic shooting_dyn();
+
+		virtual Void createBullet( int tankID);
+		Dynamic createBullet_dyn();
 
 };
 

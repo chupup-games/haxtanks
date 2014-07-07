@@ -6,9 +6,6 @@
 #ifndef INCLUDED_Tank
 #include <Tank.h>
 #endif
-#ifndef INCLUDED_haxe_Log
-#include <haxe/Log.h>
-#endif
 
 Void Tank_obj::__construct(Float x,Float y,Float rotation,Float radius)
 {
@@ -39,19 +36,6 @@ Dynamic Tank_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct(inArgs[0],inArgs[1],inArgs[2],inArgs[3]);
 	return result;}
 
-Void Tank_obj::shoot( ){
-{
-		HX_STACK_FRAME("Tank","shoot",0xdb9fe57b,"Tank.shoot","Tank.hx",7,0x0a99ddf4)
-		HX_STACK_THIS(this)
-		HX_STACK_LINE(7)
-		::haxe::Log_obj::trace(HX_CSTRING("Shooting Target.."),hx::SourceInfo(HX_CSTRING("Tank.hx"),7,HX_CSTRING("Tank"),HX_CSTRING("shoot")));
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC0(Tank_obj,shoot,(void))
-
 
 Tank_obj::Tank_obj()
 {
@@ -59,10 +43,6 @@ Tank_obj::Tank_obj()
 
 Dynamic Tank_obj::__Field(const ::String &inName,bool inCallProp)
 {
-	switch(inName.length) {
-	case 5:
-		if (HX_FIELD_EQ(inName,"shoot") ) { return shoot_dyn(); }
-	}
 	return super::__Field(inName,inCallProp);
 }
 
@@ -84,7 +64,6 @@ static hx::StorageInfo *sMemberStorageInfo = 0;
 #endif
 
 static ::String sMemberFields[] = {
-	HX_CSTRING("shoot"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

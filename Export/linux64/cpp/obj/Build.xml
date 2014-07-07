@@ -858,7 +858,6 @@
   <file name="src/Tank.cpp">
    <depend name="include/GameObject.h"/>
    <depend name="include/Tank.h"/>
-   <depend name="include/haxe/Log.h"/>
   </file>
   <file name="src/StringTools.cpp">
    <depend name="include/StringTools.h"/>
@@ -882,17 +881,6 @@
   </file>
   <file name="src/Lambda.cpp">
    <depend name="include/Lambda.h"/>
-  </file>
-  <file name="src/GameObject.cpp">
-   <depend name="include/GameObject.h"/>
-   <depend name="include/openfl/display/DisplayObject.h"/>
-   <depend name="include/openfl/display/DisplayObjectContainer.h"/>
-   <depend name="include/openfl/display/IBitmapDrawable.h"/>
-   <depend name="include/openfl/display/InteractiveObject.h"/>
-   <depend name="include/openfl/display/Sprite.h"/>
-   <depend name="include/openfl/display/Stage.h"/>
-   <depend name="include/openfl/events/EventDispatcher.h"/>
-   <depend name="include/openfl/events/IEventDispatcher.h"/>
   </file>
   <file name="src/DefaultAssetLibrary.cpp">
    <depend name="include/Date.h"/>
@@ -948,6 +936,21 @@
    <depend name="include/Date.h"/>
    <depend name="include/Std.h"/>
   </file>
+  <file name="src/Bullet.cpp">
+   <depend name="include/Bullet.h"/>
+   <depend name="include/GameObject.h"/>
+  </file>
+  <file name="src/GameObject.cpp">
+   <depend name="include/GameObject.h"/>
+   <depend name="include/openfl/display/DisplayObject.h"/>
+   <depend name="include/openfl/display/DisplayObjectContainer.h"/>
+   <depend name="include/openfl/display/IBitmapDrawable.h"/>
+   <depend name="include/openfl/display/InteractiveObject.h"/>
+   <depend name="include/openfl/display/Sprite.h"/>
+   <depend name="include/openfl/display/Stage.h"/>
+   <depend name="include/openfl/events/EventDispatcher.h"/>
+   <depend name="include/openfl/events/IEventDispatcher.h"/>
+  </file>
   <file name="src/DocumentClass.cpp">
    <depend name="include/DocumentClass.h"/>
    <depend name="include/Main.h"/>
@@ -963,6 +966,7 @@
    <depend name="include/openfl/events/IEventDispatcher.h"/>
   </file>
   <file name="src/Main.cpp">
+   <depend name="include/Bullet.h"/>
    <depend name="include/GameObject.h"/>
    <depend name="include/Main.h"/>
    <depend name="include/Mechanics.h"/>

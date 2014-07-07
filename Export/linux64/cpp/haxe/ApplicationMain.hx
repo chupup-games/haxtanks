@@ -105,7 +105,7 @@ class ApplicationMain {
 			},
 			640, 480, 
 			60, 
-			255,
+			153,
 			(true ? flash.Lib.HARDWARE : 0) |
 			(false ? flash.Lib.ALLOW_SHADERS : 0) |
 			(false ? flash.Lib.REQUIRE_SHADERS : 0) |
